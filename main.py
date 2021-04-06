@@ -1,0 +1,1 @@
+print('Primo esercizio py')
