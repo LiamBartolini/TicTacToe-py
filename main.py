@@ -1,6 +1,5 @@
 import random
 
-print('tic tac toe')
 field = [['-', '-', '-'],
          ['-', '-', '-'],
          ['-', '-', '-']]
@@ -13,16 +12,18 @@ def printField():
         ret += "\n"
     return ret
 
-def pearsoneMove():
-    pos = list(map(int,input('Input your position (x,y) - ').strip().split(',')))
-    x = pos[0]
-    y = pos[1]
-    if x >= 0 and x < 3 and y >= 0 and y < 3:
-        if (field[x][y] == '-'):
-            field[x][y] = 'X'
-        else:
-            print(f'({x},{y}) invalid position!')
-
+def pearsoneMove(msg):
+    while True:
+        pos = list(map(int,input(msg).strip().split(',')))
+        x = pos[0]
+        y = pos[1]
+        if x >= 0 and x < 3 and y >= 0 and y < 3:
+            if (field[x][y] == '-'):
+                field[x][y] = 'X'
+                break
+            else:
+                print(f'({x},{y}) invalid position!')
+                continue
 def computerMove():
     while True:
         x = random.randint(0,2)
@@ -31,5 +32,13 @@ def computerMove():
             field[x][y] = 'O'
             break
 
-computerMove()
-print(printField())
+def run():
+    print('tic tac toe')
+    cont = 0
+    while cont < 3:
+        pearsoneMove('Make your move: ')
+        computerMove()
+        print(printField())
+        cont+=1
+
+run()
