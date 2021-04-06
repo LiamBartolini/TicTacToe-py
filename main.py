@@ -29,6 +29,7 @@ def computerMove():
         x = random.randint(0,2)
         y = random.randint(0,2)
         if board[x][y] == '-':
+            print(f'Computer move:\t{x},{y}')
             board[x][y] = 'O'
             break
 
