@@ -12,7 +12,7 @@ def printField():
         ret += "\n"
     return ret
 
-def pearsoneMove(msg):
+def personMove(msg):
     while True:
         pos = list(map(int,input(msg).strip().split(',')))
         x = pos[0]
@@ -24,6 +24,7 @@ def pearsoneMove(msg):
             else:
                 print(f'({x},{y}) invalid position!')
                 continue
+
 def computerMove():
     while True:
         x = random.randint(0,2)
@@ -36,7 +37,7 @@ def run():
     print('tic tac toe')
     cont = 0
     while cont < 3:
-        pearsoneMove('Make your move: ')
+        personMove('Make your move: ')
         computerMove()
         print(printField())
         cont+=1
