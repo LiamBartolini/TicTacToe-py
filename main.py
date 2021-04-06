@@ -1,3 +1,5 @@
+import random
+
 print('tic tac toe')
 field = [['-', '-', '-'],
          ['-', '-', '-'],
@@ -20,6 +22,14 @@ def pearsoneMove():
             field[x][y] = 'X'
         else:
             print(f'({x},{y}) invalid position!')
-   
-pearsoneMove()
+
+def computerMove():
+    while True:
+        x = random.randint(0,2)
+        y = random.randint(0,2)
+        if field[x][y] == '-':
+            field[x][y] = 'O'
+            break
+
+computerMove()
 print(printField())
